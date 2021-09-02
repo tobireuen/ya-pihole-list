@@ -10,13 +10,14 @@ if [ "$EUID" -ne 0 ]
   exit 1
 fi
 
+BASEDIR=$(dirname $0)
 basename="pihole"
 PIHOLE_COMMAND="/usr/local/bin/${basename}"
 piholeDir="/etc/${basename}"
 gravityDBfile="${piholeDir}/gravity.db"
 adListSource="https://raw.githubusercontent.com/JavanXD/ya-pihole-list/master/adlists.list.updater"
-adListFile="$HOME/adlists.list.updater"
-tmpFile="$HOME/adlists.list.updater.tmp"
+adListFile="$BASEDIR/adlists.list.updater"
+tmpFile="$adListFile.tmp"
 table="adlist"
 timestamp="$(date --utc +'%s')"
 
